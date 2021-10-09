@@ -1,4 +1,4 @@
-FROM python:3.10.0
+FROM python:3.8.12
 
 RUN mkdir /app
 
@@ -15,4 +15,4 @@ ADD dist/stocks_rss_feed-0.1.0-py3-none-any.whl .
 RUN pip install stocks_rss_feed-0.1.0-py3-none-any.whl && \
     rm -rf stocks_rss_feed-0.1.0-py3-none-any.whl
 
-ENTRYPOINT streamlit run ./app.py
+ENTRYPOINT streamlit run ./app.py --server.address "0.0.0.0"
